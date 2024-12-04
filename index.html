@@ -7,7 +7,7 @@
   <title>@hubs.lol</title>
   <style>
     body {
-      font-family: 'Poppins';font-size: 17px;
+      font-family: 'Poppins'; font-size: 17px;
       margin: 0;
       padding: 0;
       color: white;
@@ -28,6 +28,7 @@
       height: 100%;
       object-fit: cover; 
       z-index: -1;
+      transition: background-color 0.3s ease; /* Transição suave */
     }
 
     #intro {
@@ -128,6 +129,38 @@
       }
     }
 
+    @media screen and (max-width: 768px) {
+      body {
+        font-size: 14px;
+      }
+
+      #intro {
+        font-size: 1.5em;
+      }
+
+      .profile-container {
+        flex-direction: column;
+        gap: 30px;
+        width: 100%;
+      }
+
+      .profile {
+        width: 80%;
+        height: auto;
+        font-size: 1.2em;
+        padding: 20px;
+      }
+
+      .profile img {
+        width: 120px;
+        height: 120px;
+      }
+
+      #start-btn {
+        font-size: 1.2em;
+      }
+    }
+    
     .hidden {
       display: none;
     }
