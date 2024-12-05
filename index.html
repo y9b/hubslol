@@ -28,7 +28,7 @@
       height: 100%;
       object-fit: cover; 
       z-index: -1;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s ease; /* Transição suave */
     }
 
     #intro {
@@ -54,8 +54,8 @@
       width: 100%;
       margin-top: 20px;
       gap: 100px;
-      flex-wrap: wrap; 
-      align-items: center; 
+      flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha, se necessário */
+      align-items: center; /* Alinha os itens verticalmente no centro */
     }
 
     .profile {
@@ -201,6 +201,11 @@
       <div id="displayname-2">grwx</div>
       <div class="username" id="username-2">Username</div>
     </div>
+    <div class="profile" id="profile-3">
+      <img id="avatar-3" src="" alt="Avatar 3">
+      <div id="displayname-3">margarido</div>
+      <div class="username" id="username-3">Username</div>
+    </div>
   </div>
 
   <audio id="audio" src="https://server1.mtabrasil.com.br/play?id=gnXkyM4ieTI"></audio>
@@ -214,10 +219,11 @@
     }
 
     async function updateProfileContainers() {
-      const userIds = ['391996714518839296', '1274150219482660897'];
+      const userIds = ['391996714518839296', '1274150219482660897', '1182582553769693227'];
 
       const userData1 = await fetchUserData(userIds[0]);
       const userData2 = await fetchUserData(userIds[1]);
+      const userData3 = await fetchUserData(userIds[2]);
 
       const avatar1 = document.getElementById('avatar-1');
       const displayName1 = document.getElementById('displayname-1');
@@ -232,6 +238,13 @@
       avatar2.src = `https://cdn.discordapp.com/avatars/${userData2.discord_user.id}/${userData2.discord_user.avatar}.png?size=512`;
       displayName2.textContent = userData2.discord_user.display_name || userData2.discord_user.username;
       username2.textContent = `@${userData2.discord_user.username}`;
+
+      const avatar3 = document.getElementById('avatar-3');
+      const displayName3 = document.getElementById('displayname-3');
+      const username3 = document.getElementById('username-3');
+      avatar3.src = `https://cdn.discordapp.com/avatars/${userData3.discord_user.id}/${userData3.discord_user.avatar}.png?size=512`;
+      displayName3.textContent = userData3.discord_user.display_name || userData3.discord_user.username;
+      username3.textContent = `@${userData3.discord_user.username}`;
 
       document.getElementById('profile-container').classList.remove('hidden');
     }
